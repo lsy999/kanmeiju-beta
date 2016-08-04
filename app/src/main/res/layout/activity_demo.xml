@@ -16,7 +16,16 @@
             android:layout_height="@dimen/nav_header_height"
             android:scaleType="centerCrop"
             android:src="@drawable/side_nav_bar" />
-
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/bg_image1"
+                android:layout_width="96dp"
+                android:layout_height="@dimen/nav_header_height"
+                android:scaleType="centerCrop"
+                android:src="@drawable/side_nav_bar" />
+        </FrameLayout>
         <View
             android:id="@+id/list_background"
             android:layout_width="match_parent"
@@ -29,9 +38,6 @@
             android:layout_height="match_parent" />
 
         <include layout="@layout/gradient_header" />
-
-
-
     </FrameLayout>
 
     <FrameLayout
@@ -53,8 +59,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/tran"
                 android:minHeight="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+                app:title="@string/app_name"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
         </LinearLayout>
 
     </FrameLayout>

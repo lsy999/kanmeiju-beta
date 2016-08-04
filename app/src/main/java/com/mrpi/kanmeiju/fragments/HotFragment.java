@@ -130,6 +130,7 @@ public class HotFragment extends Fragment implements BannerView.setTagImageView{
                 mAdapter.notifyDataSetChanged();
                 break;
             case Events.BANNER_SHOW:
+                mList.clear();
                 loadHot();
                 break;
             case Events.BANNER_HIDE:
@@ -204,8 +205,6 @@ public class HotFragment extends Fragment implements BannerView.setTagImageView{
                 mAdapter.notifyDataSetChanged();
                 if(query().size()>3&&mAdapter.getHeaderView()==null){
                     setHeader(mRecy);
-                }else {
-                    mBanner.getTagImageView(1).setImage("http://pic8.nipic.com/20100723/4943220_075234451520_2.jpg");
                 }
                 mSwipe.setRefreshing(false);
                 dismisDialog();
@@ -239,7 +238,7 @@ public class HotFragment extends Fragment implements BannerView.setTagImageView{
                 intent.putExtra("picUrl", query().get(position).getPicture());
                 intent.putExtra("title",query().get(position).getName());
                 intent.putExtra("position",position);
-                AppController.getActivity().startActivity(intent);
+                getActivity().startActivity(intent);
             }
         });
     }

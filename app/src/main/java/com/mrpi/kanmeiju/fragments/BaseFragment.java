@@ -45,6 +45,10 @@ public abstract class BaseFragment extends Fragment{
     private int type = 1;
     public static Context mActivity;
 
+    public BaseFragment(){
+
+    }
+
     public void init(int type,Context mActivity){
         this.type = type;
         page = 1;

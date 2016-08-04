@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
         daoSession = AppController.getDaoSession();
         dao = daoSession.getMeijuDao();
         mCache = ACache.get(this);
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {

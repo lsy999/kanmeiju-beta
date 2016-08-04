@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -26,6 +27,7 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.mrpi.kanmeiju.R;
 import com.mrpi.kanmeiju.utils.FastBlur;
 import com.nineoldandroids.view.ViewHelper;
+import com.orhanobut.logger.Logger;
 
 public class DemoActivity extends AbsActivity implements ObservableScrollViewCallbacks {
 
@@ -37,6 +39,7 @@ public class DemoActivity extends AbsActivity implements ObservableScrollViewCal
     private View mStatusBarView;
     private ImageView mAlbum;
     private Toolbar mToolBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +88,7 @@ public class DemoActivity extends AbsActivity implements ObservableScrollViewCal
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
