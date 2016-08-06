@@ -59,7 +59,7 @@ public class SearchActivity extends BaseActivity {
         mSwipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         mStaggered = new GridLayoutManager(mBaseActivity,2);
         mRecycler.  setLayoutManager(mStaggered);
-        mAdapter = new MainAdapter(mList);
+        mAdapter = new MainAdapter(mList,getApplicationContext());
         mRecycler.setAdapter(mAdapter);
         mSwipe.post(new Runnable() {
             @Override

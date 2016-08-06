@@ -19,8 +19,12 @@ public class XyFragment extends BaseFragment {
         init(Type.TYPE_XY_CODE);
     }
 
-    public XyFragment() {
-
+    private static XyFragment xyhFragment;
+    public static XyFragment newInstance(){
+        if(xyhFragment == null){
+            xyhFragment = new XyFragment();
+        }
+        return xyhFragment;
     }
 
     @Override

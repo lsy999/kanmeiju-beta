@@ -31,6 +31,7 @@ import de.greenrobot.dao.query.Query;
  * Created by acer on 2016/7/17.
  */
 public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
+
     public static final int TYPE_HEADER = 0;
     public static final int TYPE_NORMAL = 1;
     private List<Video.Meiju> mList;

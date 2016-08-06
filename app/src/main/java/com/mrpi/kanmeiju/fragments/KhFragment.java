@@ -20,6 +20,14 @@ public class KhFragment extends BaseFragment{
         init(Type.TYPE_KH_CODE);
     }
 
+    private static KhFragment mKhFragment;
+    public static KhFragment newInstance(){
+        if(mKhFragment == null){
+            mKhFragment = new KhFragment();
+        }
+        return mKhFragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

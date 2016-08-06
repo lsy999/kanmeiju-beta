@@ -20,6 +20,14 @@ public class XjFragment extends BaseFragment {
         init(Type.TYPE_XJ_CODE);
     }
 
+    private static XjFragment XjhFragment;
+    public static XjFragment newInstance(){
+        if(XjhFragment == null){
+            XjhFragment = new XjFragment();
+        }
+        return XjhFragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

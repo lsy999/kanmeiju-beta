@@ -20,6 +20,14 @@ public class MvFragment extends BaseFragment{
         init(Type.TYPE_MV_CODE);
     }
 
+    private static MvFragment mMvFragment;
+    public static MvFragment newInstance(){
+        if(mMvFragment == null){
+            mMvFragment = new MvFragment();
+        }
+        return mMvFragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

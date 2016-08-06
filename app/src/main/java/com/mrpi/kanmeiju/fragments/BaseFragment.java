@@ -115,7 +115,7 @@ public abstract class BaseFragment extends Fragment{
         mRecy.setHasFixedSize(true);
         mRecy.addItemDecoration(new SpaceItemDecoration(getContext(),R.dimen.item_decoration));
         mSwipe = (SwipeRefreshLayout) findViewById(R.id.swiper_refresh);
-        mAdapter = new MainAdapter(mList);
+        mAdapter = new MainAdapter(mList,getActivity());
         mRecy.setAdapter(mAdapter);
         mSwipe.post(new Runnable() {
             @Override

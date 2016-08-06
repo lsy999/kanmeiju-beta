@@ -128,8 +128,10 @@ public class BannerView extends FrameLayout {
             TagImageView tagImageView =  new TagImageView(context);
             setTagImageView.setImageView(tagImageView,i);
             mImageViews.add(tagImageView);
-            DotView dot = new DotView(context);
-            mDotView.addView(dot);
+            if(i<size-1) {
+                DotView dot = new DotView(context);
+                mDotView.addView(dot);
+            }
         }
         mPager = (ViewPager) findViewById(R.id.viewPager);
         mPager.setFocusable(true);
@@ -168,7 +170,9 @@ public class BannerView extends FrameLayout {
         boolean isAutoPlay = false;
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+            if(position==size-1){
+                mPager.setCurrentItem(0, false);
+            }
         }
 
         @Override
@@ -181,6 +185,7 @@ public class BannerView extends FrameLayout {
                     ((DotView)mDotView.getChildAt(i)).setDotBackground(R.drawable.dot_white);
                 }
             }
+
         }
 
         @Override

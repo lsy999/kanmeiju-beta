@@ -219,7 +219,7 @@ public class HotFragment extends Fragment implements BannerView.setTagImageView{
         mBanner = (BannerView) view.findViewById(R.id.banner);
         mBanner.setVisibility(View.GONE);
         if(query().size()>3){
-            mBanner.setTagImageView(query().size(),this);
+            mBanner.setTagImageView(query().size()+1,this);
             mBanner.setVisibility(View.VISIBLE);
         }
         mBanner.getmAdapter().setOnItemSelectListener(new BannerPagerAdapter.OnItemSelectListener() {
@@ -242,7 +242,12 @@ public class HotFragment extends Fragment implements BannerView.setTagImageView{
 
     @Override
     public void setImageView(TagImageView tagImageView, int position) {
-        Meiju meiju = (Meiju)query().get(position);
+        Meiju meiju = null;
+        if(position<query().size()) {
+             meiju = (Meiju) query().get(position);
+        } else if(position == query().size()){
+            meiju = query().get(0);
+        }
         if(meiju.getLocal().length()>0){
             tagImageView.setImage(meiju.getLocal());
         }else {

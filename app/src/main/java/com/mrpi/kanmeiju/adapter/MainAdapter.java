@@ -1,5 +1,6 @@
 package com.mrpi.kanmeiju.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
@@ -35,14 +36,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private List<Video.Meiju> mList;
     private static MeijuDao dao;
+    private Context mContext;
 
-    public MainAdapter(List<Video.Meiju> list){
+    public MainAdapter(List<Video.Meiju> list,Context context){
         if(this.mList!=null){
             this.mList.clear();
         }
         if(dao==null){
             MainAdapter.dao = AppController.getDao();
         }
+        this.mContext = context;
         this.mList = list;
     }
 
@@ -72,7 +75,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             url = TextUtils.getUrl(mList.get(position).getPicUrl());
         }
         holder.mTitle.setText(mList.get(position).getDescription());
-        Glide.with(AppController.getContext())
+        Glide.with(mContext)
                 .load(url)
                 .into(holder.mAlbum);
         if(!exist(getId(mList.get(position).getInfoUrl()))){
@@ -128,14 +131,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(AppController.getActivity(), DetailActivity.class);
+                    Intent intent = new Intent(mContext, DetailActivity.class);
                     String url = mList.get(getLayoutPosition()).getInfoUrl();
                     intent.putExtra("url",getId(url));
                     intent.putExtra("picUrl", mList.get(getLayoutPosition()).getPicUrl());
                     intent.putExtra("title", mList.get(getLayoutPosition()).getDescription());
                     intent.putExtra("position",getLayoutPosition());
                     AppController.updateClick(getId(url));
-                    AppController.getActivity().startActivity(intent);
+                    mContext.startActivity(intent);
                 }
             });
         }

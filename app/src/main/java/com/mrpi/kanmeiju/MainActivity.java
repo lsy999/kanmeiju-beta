@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        stopService(new Intent(this,CheckUpdateService.class));
     }
 
     private CheckUpdateService.UpdateBinder mBinder;
@@ -193,9 +194,9 @@ public class MainActivity extends AppCompatActivity
         List<String> tabTitle = new ArrayList<>();
         mFragmentList.add(new HotFragment());
         mFragmentList.add(new XyFragment());
-        mFragmentList.add(new KhFragment());
+        mFragmentList.add(KhFragment.newInstance());
         mFragmentList.add(new XjFragment());
-        mFragmentList.add(new MvFragment());
+        mFragmentList.add(MvFragment.newInstance());
 
         tabTitle.add("热门推荐");
         tabTitle.add("悬疑");
@@ -298,7 +299,6 @@ public class MainActivity extends AppCompatActivity
     public void onEvent(Events e){
         switch (e.getCode()){
             case Events.SERVICE_DESTROY:
-                unbindService(connection);
                 stopService(new Intent(this,CheckUpdateService.class));
                 break;
             case Events.SERVICE_START:
